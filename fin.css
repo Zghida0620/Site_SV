@@ -1,0 +1,158 @@
+:root{
+  --bg1:#14000b;
+  --bg2:#2a0017;
+  --glass: rgba(255,255,255,.08);
+  --border: rgba(255,255,255,.14);
+  --text: rgba(255,255,255,.92);
+  --muted: rgba(255,255,255,.72);
+  --pink:#ff5fa2;
+  --red:#ff2d55;
+  --soft:#ffd1e6;
+  --shadow: 0 18px 60px rgba(0,0,0,.45);
+  --radius: 22px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  color: var(--text);
+  background:
+    radial-gradient(1000px 600px at 20% 15%, rgba(255,95,162,0.22) 0%, transparent 55%),
+    radial-gradient(900px 520px at 80% 30%, rgba(255,45,85,0.18) 0%, transparent 55%),
+    radial-gradient(700px 520px at 50% 90%, rgba(255,209,230,0.12) 0%, transparent 60%),
+    linear-gradient(160deg, var(--bg1), var(--bg2));
+  overflow-x:hidden;
+}
+
+.wrap{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 60px 16px 80px;
+  display:flex;
+  flex-direction:column;
+  gap: 14px;
+  text-align:center;
+}
+
+.big-title{
+  margin: 0;
+  font-size: clamp(40px, 6vw, 74px);
+  color: var(--soft);
+  text-shadow: 0 0 22px rgba(255,95,162,.35);
+}
+
+.subtitle{
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.signature{
+  margin-top: 22px;
+  color: rgba(255,255,255,.75);
+}
+
+/* ===================== */
+/* GRID DRAPEAUX (images) */
+/* ===================== */
+.flags-grid{
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 10px;
+}
+
+@media (max-width: 900px){
+  .flags-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+}
+
+/* carte flip */
+.flip-card{
+  perspective: 1000px;
+}
+
+.flip-inner{
+  position: relative;
+  width: 100%;
+  height: 130px;
+  transform-style: preserve-3d;
+  transition: transform .6s ease;
+  border-radius: 18px;
+}
+
+.flip-card.flipped .flip-inner{
+  transform: rotateY(180deg);
+}
+
+.flip-front, .flip-back{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius: 18px;
+  backface-visibility: hidden;
+
+  background: rgba(0,0,0,.22);
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.06) inset,
+    0 10px 30px rgba(0,0,0,.30);
+}
+
+/* face drapeau */
+.flip-front{
+  padding: 14px;
+}
+
+/* image drapeau */
+.flag-img{
+  width: 78px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.22);
+  box-shadow:
+    0 12px 25px rgba(0,0,0,.35),
+    0 0 18px rgba(255,95,162,.18);
+}
+
+/* face arrière */
+.flip-back{
+  transform: rotateY(180deg);
+  flex-direction:column;
+  gap: 6px;
+  padding: 14px;
+}
+
+.love{
+  font-weight: 900;
+  color: var(--soft);
+  font-size: 15px;
+  text-shadow: 0 0 14px rgba(255,95,162,.35);
+  line-height:1.2;
+}
+
+.lang{
+  font-size: 12px;
+  color: rgba(255,255,255,.70);
+}
+
+/* Effet hover (PC) */
+.flip-card:hover .flip-front,
+.flip-card:hover .flip-back{
+  border-color: rgba(255,209,230,.25);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.06) inset,
+    0 14px 40px rgba(255,45,85,.12);
+}
+
+/* petite animation "tap" */
+.flip-card:active{
+  transform: scale(.99);
+}

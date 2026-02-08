@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="js/game.js"></script>
+    <title>Pac Man</title>
+</head>
+
+<body>
+    <a class="back-home" href="../index.html">← Accueil</a>
+
+
+    <div id="win" class="hidden"></div>
+
+    <div class="container">
+
+        <div class="game-title">
+            <h1>PAC-MAN</h1>
+        </div>
+
+        <div class="game-container">
+            <!-- Gauche -->
+            <div class="side-panel">
+                <h2>◄ CONTROLS ►</h2>
+
+                <div class="info-box">
+                    Utilisez les flèches du clavier pour déplacer Pac-Man dans le labyrinthe
+                </div>
+
+                <h2 style="margin-top: 25px;">◄ MISSION ►</h2>
+                <div class="info-box">
+                    • Mangez tout les coeurs    <br>
+                    • Évitez les fantômes<br>
+                    • Fait toi piquer par Cupidon !
+                </div>
+            </div>
+
+            <!-- Game -->
+            <div class="game-screen">
+                <canvas id="canvas"></canvas>
+            </div>
+
+            <!-- Droite -->
+            <div class="side-panel">
+                <h2>◄ SCORE ►</h2>
+
+                <div class="score-display">
+                    <div class="label">POINTS</div>
+                    <div class="value" id="score">00000</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

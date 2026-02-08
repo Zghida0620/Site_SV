@@ -1,0 +1,257 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+:root{
+  --v-red: #ff2d55;
+  --v-pink: #ff5fa2;
+  --v-soft: #ffd1e6;
+  --v-gold: #ffd700;
+  --v-bg1: #14000b;
+  --v-bg2: #2a0017;
+  --v-cyan: #7ff3ff; /* petite touche néon */
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family: "Press Start 2P", cursive;
+  color:#fff;
+  overflow-x:hidden;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  /* Fond Saint-Valentin (velours + glow + confettis) */
+  background:
+    radial-gradient(1000px 600px at 20% 15%, rgba(255,95,162,0.22) 0%, transparent 55%),
+    radial-gradient(900px 520px at 80% 30%, rgba(255,45,85,0.18) 0%, transparent 55%),
+    radial-gradient(700px 520px at 50% 90%, rgba(255,209,230,0.12) 0%, transparent 60%),
+    linear-gradient(160deg, var(--v-bg1), var(--v-bg2));
+  position: relative;
+}
+
+/* petites paillettes + coeurs (pseudo-éléments) */
+body::before{
+  content:"";
+  position: fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.45;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(255,255,255,.35) 0 2px, transparent 3px),
+    radial-gradient(circle at 35% 70%, rgba(255,255,255,.25) 0 2px, transparent 3px),
+    radial-gradient(circle at 80% 40%, rgba(255,255,255,.25) 0 2px, transparent 3px),
+    radial-gradient(circle at 60% 15%, rgba(255,255,255,.20) 0 2px, transparent 3px),
+    radial-gradient(circle at 90% 80%, rgba(255,255,255,.22) 0 2px, transparent 3px);
+  filter: blur(.2px);
+}
+
+body::after{
+  content:"";
+  position: fixed;
+  inset:-80px;
+  pointer-events:none;
+  opacity:.18;
+  background:
+    radial-gradient(circle at 15% 30%, rgba(255,95,162,.6) 0 6px, transparent 7px),
+    radial-gradient(circle at 70% 20%, rgba(255,45,85,.55) 0 6px, transparent 7px),
+    radial-gradient(circle at 40% 85%, rgba(255,209,230,.55) 0 6px, transparent 7px);
+  filter: blur(1px);
+}
+
+/* Container */
+.container{
+  max-width: 1400px;
+  width: 95%;
+  border-radius: 22px;
+  padding: 40px;
+  border: 3px solid rgba(255, 209, 230, 0.55);
+  position: relative;
+  background: rgba(0,0,0,0.35);
+  box-shadow:
+    0 20px 70px rgba(0,0,0,.55),
+    0 0 0 1px rgba(255,255,255,.06) inset,
+    0 0 40px rgba(255,95,162,.18);
+  backdrop-filter: blur(6px);
+}
+
+/* Title */
+.game-title{
+  text-align:center;
+  margin-bottom: 40px;
+}
+
+.game-title h1{
+  font-size: 3.4rem;
+  color: var(--v-soft);
+  text-shadow:
+    0 0 10px rgba(255,95,162,.65),
+    0 0 24px rgba(255,45,85,.55),
+    4px 4px 0 rgba(255,45,85,.55),
+    8px 8px 0 rgba(127,243,255,.35);
+  letter-spacing: 0.08em;
+  margin:0;
+}
+
+/* Layout */
+.game-container{
+  display:grid;
+  grid-template-columns: 300px 1fr 300px;
+  gap: 30px;
+  align-items:start;
+}
+
+/* Side panels */
+.side-panel{
+  background: rgba(0,0,0,0.45);
+  border: 2px solid rgba(255, 95, 162, 0.55);
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.06) inset,
+    0 0 24px rgba(255,95,162,.12);
+}
+
+.side-panel h2{
+  font-size: 0.95rem;
+  color: var(--v-soft);
+  text-align:center;
+  margin-bottom: 18px;
+  text-shadow: 0 0 12px rgba(255,95,162,.55);
+  letter-spacing: 0.08em;
+}
+
+/* Info boxes */
+.info-box{
+  background: rgba(255, 95, 162, 0.10);
+  border: 1px solid rgba(255, 209, 230, 0.55);
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 15px;
+  font-size: 0.7rem;
+  line-height: 1.7;
+  color: #fff;
+}
+
+/* Score */
+.score-display{
+  background: rgba(0,0,0,0.55);
+  border: 2px solid rgba(255, 209, 230, 0.65);
+  border-radius: 12px;
+  padding: 20px;
+  text-align:center;
+  margin-bottom: 15px;
+  box-shadow: 0 0 20px rgba(255,45,85,.10);
+}
+
+.score-display .label{
+  font-size: 0.7rem;
+  color: var(--v-soft);
+  margin-bottom: 10px;
+}
+
+.score-display .value{
+  font-size: 2rem;
+  color: #fff;
+  text-shadow:
+    0 0 10px rgba(255,95,162,.65),
+    0 0 22px rgba(255,45,85,.35);
+}
+
+/* Game screen frame */
+.game-screen{
+  background: rgba(0,0,0,0.55);
+  border: 4px solid rgba(255, 95, 162, 0.75);
+  border-radius: 18px;
+  padding: 15px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.06) inset,
+    0 0 28px rgba(255,95,162,.18);
+}
+
+#canvas{
+  display:block;
+  max-width:100%;
+  height:auto;
+  box-shadow:
+    0 0 30px rgba(255,95,162,0.18),
+    0 0 18px rgba(127,243,255,0.10);
+  border-radius: 10px;
+}
+
+/* Win modal */
+.hidden{ display:none; }
+
+#win{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  background: rgba(15, 0, 8, 0.92);
+  padding: 30px;
+  border: 2px solid rgba(255, 209, 230, 0.75);
+  border-radius: 18px;
+  text-align: center;
+  max-width: 420px;
+  box-shadow:
+    0 0 60px rgba(255, 45, 85, 0.35),
+    0 0 30px rgba(255, 95, 162, 0.22);
+  backdrop-filter: blur(8px);
+}
+
+#win h2{
+  margin-bottom: 0.6em;
+  width:100%;
+  color: var(--v-soft);
+  text-shadow: 0 0 14px rgba(255,95,162,.55);
+}
+
+/* Boutons */
+#win button{
+  border: 1px solid rgba(255, 209, 230, 0.75);
+  background: linear-gradient(135deg, var(--v-red), var(--v-pink));
+  color: #0b0010;
+  padding: 10px 15px;
+  border-radius: 12px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(255,45,85,.18);
+}
+#win button:hover{ filter: brightness(1.05); }
+
+/* Back home */
+.back-home{
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 9999;
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: rgba(255, 95, 162, 0.12);
+  border: 1px solid rgba(255, 209, 230, 0.45);
+  color: white;
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 13px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 30px rgba(255,45,85,.10);
+}
+.back-home:hover{ opacity:.92; }
+
+/* Responsive */
+@media (max-width: 1100px){
+  .game-container{
+    grid-template-columns: 1fr;
+  }
+  .game-title h1{
+    font-size: 2.4rem;
+  }
+}

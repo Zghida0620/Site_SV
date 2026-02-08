@@ -1,0 +1,8 @@
+ - Utilisation de l'ia pour generer un layout pour pacman.
+Nous avons donné comme critères 20 lignes, 20 colonnes et une inspiration du layout original du jeu
+ensuite nous avons modifier a la main pour supprimer les sortie possibles comme dans le jeux original,
+modifié le designe a notre gout, et supprimé un peu de nourriture pour fixé un nombre précis (150);
+
+- Pour debuggez surtout au niveaux de la classe Ghost.js car nous avons eu plusieurs erreurs.
+
+- Verifié les erreurs a la toute fin du travail pour s'assurer qu'il n'y en est plus et que tout soit fonctionnelle.
