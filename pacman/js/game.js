@@ -73,7 +73,7 @@ function gameLoop() {
         `;
 
         document.getElementById("restart").onclick = restartGame;
-        document.getElementById("level-sup").onclick = () => { window.top.location.href = "../win.html"; };
+        document.getElementById("level-sup").onclick = () => { window.top.location.href = "../fin.html"; };
     }
 
     else if (ghosts.some(ghost => ghost.checkCollisionWithPacman(pacman.x, pacman.y))) {
@@ -87,7 +87,7 @@ function gameLoop() {
         `;
 
         document.getElementById("restart").onclick = restartGame;
-        document.getElementById("level-sup").onclick = () => { window.top.location.href = "../win.html"; };
+        document.getElementById("level-sup").onclick = () => { window.top.location.href = "../fin.html"; };
     }
 }
 
